@@ -23,16 +23,14 @@ public class ShopPlus {
     private double vat;
 
     @EventListener(ApplicationReadyEvent.class)
-    public void addVat(){
-        shopStart.getItemList().forEach(shopItem -> shopItem.setPrice(shopItem.getPrice()*vat));
+    public void addVat() {
+        shopStart.getItemList().forEach(shopItem -> shopItem.setPrice(shopItem.getPrice() * vat));
     }
 
     @EventListener(ApplicationReadyEvent.class)
-    public void get(){
+    public void get() {
         System.out.println("Wybrales ShopPlus");
     }
-
-
 
 
 }

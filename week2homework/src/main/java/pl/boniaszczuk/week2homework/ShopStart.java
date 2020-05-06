@@ -13,11 +13,11 @@ public class ShopStart {
     private List<ShopItem> itemList;
 
     public ShopStart() {
-        ShopItem item1 = new ShopItem("Kurtka",Math.floor(Math.random()*300+50));
-        ShopItem item2 = new ShopItem("Plaszcz",Math.floor(Math.random()*300+50));
-        ShopItem item3 = new ShopItem("Bluza",Math.floor(Math.random()*300+50));
-        ShopItem item4 = new ShopItem("Spodnie",Math.floor(Math.random()*300+50));
-        ShopItem item5 = new ShopItem("Czapka",Math.floor(Math.random()*300+50));
+        ShopItem item1 = new ShopItem("Kurtka", Math.floor(Math.random() * 300 + 50));
+        ShopItem item2 = new ShopItem("Plaszcz", Math.floor(Math.random() * 300 + 50));
+        ShopItem item3 = new ShopItem("Bluza", Math.floor(Math.random() * 300 + 50));
+        ShopItem item4 = new ShopItem("Spodnie", Math.floor(Math.random() * 300 + 50));
+        ShopItem item5 = new ShopItem("Czapka", Math.floor(Math.random() * 300 + 50));
         itemList = new ArrayList<>();
         itemList.add(item1);
         itemList.add(item2);
@@ -29,12 +29,12 @@ public class ShopStart {
 
 
     @EventListener(ApplicationReadyEvent.class)
-    public void getAllPrices(){
+    public void getAllPrices() {
         double sum = itemList.stream().mapToDouble(ShopItem::getPrice).sum();
         System.out.println(sum);
     }
 
-    public List<ShopItem> getItemList(){
+    public List<ShopItem> getItemList() {
         return itemList;
     }
 }

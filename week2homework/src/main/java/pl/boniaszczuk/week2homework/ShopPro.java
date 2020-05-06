@@ -25,13 +25,13 @@ public class ShopPro {
     private double discount;
 
     @EventListener(ApplicationReadyEvent.class)
-    public void addVatAndDiscount(){
-        shopStart.getItemList().forEach(shopItem -> shopItem.setPrice(shopItem.getPrice()*vat*discount));
+    public void addVatAndDiscount() {
+        shopStart.getItemList().forEach(shopItem -> shopItem.setPrice(shopItem.getPrice() * vat * discount));
     }
 
 
     @EventListener(ApplicationReadyEvent.class)
-    public void get(){
+    public void get() {
         System.out.println("Wybrales ShopPro");
     }
 }
