@@ -1,10 +1,12 @@
 package pl.boniaszczuk.week2homework;
 
+import java.math.BigDecimal;
+
 public class ShopItem {
     private String name;
-    private double price;
+    private BigDecimal price;
 
-    public ShopItem(String name, double price) {
+    public ShopItem(String name, BigDecimal price) {
         this.name = name;
         this.price = price;
     }
@@ -20,11 +22,11 @@ public class ShopItem {
         this.name = name;
     }
 
-    public double getPrice() {
+    public BigDecimal getPrice() {
         return price;
     }
 
-    public void setPrice(double price) {
+    public void setPrice(BigDecimal price) {
         this.price = price;
     }
 

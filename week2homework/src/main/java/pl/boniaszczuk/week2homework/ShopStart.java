@@ -5,6 +5,7 @@ import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Service;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,25 +14,21 @@ public class ShopStart {
     private List<ShopItem> itemList;
 
     public ShopStart() {
-        ShopItem item1 = new ShopItem("Kurtka", Math.floor(Math.random() * 300 + 50));
-        ShopItem item2 = new ShopItem("Plaszcz", Math.floor(Math.random() * 300 + 50));
-        ShopItem item3 = new ShopItem("Bluza", Math.floor(Math.random() * 300 + 50));
-        ShopItem item4 = new ShopItem("Spodnie", Math.floor(Math.random() * 300 + 50));
-        ShopItem item5 = new ShopItem("Czapka", Math.floor(Math.random() * 300 + 50));
         itemList = new ArrayList<>();
-        itemList.add(item1);
-        itemList.add(item2);
-        itemList.add(item3);
-        itemList.add(item4);
-        itemList.add(item5);
-
+        itemList.add(new ShopItem("Kurtka", new BigDecimal(Math.floor(Math.random()*300+50))));
+        itemList.add(new ShopItem("Plaszcz", new BigDecimal(Math.floor(Math.random()*300+50))));
+        itemList.add(new ShopItem("Bluza", new BigDecimal(Math.floor(Math.random()*300+50))));
+        itemList.add(new ShopItem("Spodnie", new BigDecimal(Math.floor(Math.random()*300+50))));
+        itemList.add(new ShopItem("Czapka", new BigDecimal(Math.floor(Math.random()*300+50))));
+        BigDecimal result = itemList.stream().map(ShopItem::getPrice).reduce(BigDecimal.ZERO, BigDecimal::add);
+        System.out.println(result);
     }
 
 
     @EventListener(ApplicationReadyEvent.class)
     public void getAllPrices() {
-        double sum = itemList.stream().mapToDouble(ShopItem::getPrice).sum();
-        System.out.println(sum);
+        BigDecimal result = itemList.stream().map(ShopItem::getPrice).reduce(BigDecimal.ZERO, BigDecimal::add);
+        System.out.println(result);
     }
 
     public List<ShopItem> getItemList() {

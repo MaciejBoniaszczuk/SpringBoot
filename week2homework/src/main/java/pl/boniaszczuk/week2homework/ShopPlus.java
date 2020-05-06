@@ -8,6 +8,8 @@ import org.springframework.context.annotation.Profile;
 import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Component;
 
+import java.math.BigDecimal;
+
 @Component
 @Profile("Plus")
 public class ShopPlus {
@@ -20,11 +22,11 @@ public class ShopPlus {
     }
 
     @Value("${shop-info.vat}")
-    private double vat;
+    private BigDecimal vat;
 
     @EventListener(ApplicationReadyEvent.class)
     public void addVat() {
-        shopStart.getItemList().forEach(shopItem -> shopItem.setPrice(shopItem.getPrice() * vat));
+        shopStart.getItemList().forEach(shopItem -> shopItem.setPrice(shopItem.getPrice().multiply(vat)));
     }
 
     @EventListener(ApplicationReadyEvent.class)
