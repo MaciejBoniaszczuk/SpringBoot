@@ -3,6 +3,7 @@ package pl.boniaszczuk.week3homework.service;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import pl.boniaszczuk.week3homework.controller.CarApi;
 import pl.boniaszczuk.week3homework.model.Car;
 import pl.boniaszczuk.week3homework.model.Color;

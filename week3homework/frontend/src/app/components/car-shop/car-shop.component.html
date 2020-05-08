@@ -1,0 +1,68 @@
+<div>
+<button type="submit" (click)="showCars(); refresh()">Wyświetl wszystkie pozycje</button>
+<ul>
+  <li *ngFor="let car of content">
+   ID:{{car.id}}
+      {{car.brand}}
+      {{car.model}}
+      {{car.color}}
+    <br><br>
+  </li>
+</ul>
+</div>
+<div>
+  <button (click)="showCarsById(carId.value)">Wyświetl auto podając jego ID</button>
+  <input type="number" #carId >
+  <ul *ngIf="carById">
+    <li>
+      ID:{{carById.id}}
+      {{carById.brand}}
+      {{carById.model}}
+      {{carById.color}}
+    </li>
+  </ul>
+</div>
+<div>
+  <br>
+  <form class="form1">
+    <label>ID</label>
+    <input type="number" #cadAddId>
+    <br>
+    <label>Brand</label>
+    <input type="text" #carAddBrand>
+    <br>
+    <label>Marka</label>
+    <input type="text" #cadAddMark>
+    <br>
+    <label>Kolor</label>
+    <input type="text" #cadAddColor>
+  </form>
+  <button (click)="addCar(cadAddId.value, carAddBrand.value, cadAddMark.value, cadAddColor.value)">Dodaj auto</button>
+</div>
+<div>
+  <br>
+  <form class="form1">
+    <label>ID</label>
+    <input type="number" #carModId>
+    <br>
+    <label>Brand</label>
+    <input type="text" #carModBrand>
+    <br>
+    <label>Marka</label>
+    <input type="text" #carModMark>
+    <br>
+    <label>Kolor</label>
+    <input type="text" #carModColor>
+  </form>
+  <button (click)="modCar(carModId.value, carModBrand.value, carModMark.value, carModColor.value)">Zmodyfikuj auto (po ID)
+  </button>
+</div>
+<br><br>
+<div>
+  <form class="form1">
+    <label>Wpisz ID auta do usunięcia</label>
+    <input type="text" #carDelId>
+  </form>
+<button (click)="deleteCar(carDelId.value)">Usuń auto</button>
+</div>
+

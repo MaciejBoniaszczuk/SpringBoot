@@ -22,6 +22,7 @@ import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
 
 @RestController
 @RequestMapping("/cars")
+@CrossOrigin
 public class CarApi  {
 
     private CarServiceImpl carService;
@@ -38,6 +39,10 @@ public class CarApi  {
         CollectionModel<Car> carCollectionModel = new CollectionModel<>(carService.getAllCars(),link);
         return new ResponseEntity<>(carCollectionModel, HttpStatus.OK);
     }
+//    @GetMapping
+//    public List<Car> getCars(){
+//        return carService.getAllCars();
+//    }
 
     //pobieranie elementu po ID
     @GetMapping("/{id}")
