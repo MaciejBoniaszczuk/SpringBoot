@@ -9,8 +9,6 @@ import {CarShopComponent} from '../components/car-shop/car-shop.component';
 export class CarClientService {
   url = 'http://localhost:8080/cars';
   postData: {};
-  putData: {};
-  data: {};
   constructor(private httpClient: HttpClient) {
   }
   public getCars(): Observable<RootObject>{
@@ -25,22 +23,15 @@ export class CarClientService {
     };
   }
   public addCar(){
-    console.log(this.postData);
     this.httpClient.post(this.url, this.postData).toPromise().then(data => {
-      console.log('ponizej post data');
-      console.log(this.postData);
     });
   }
   public modCar(){
-    console.log(this.postData);
     this.httpClient.put(this.url, this.postData).toPromise().then(data => {
-      console.log('ponizej post data');
-      console.log(this.postData);
     });
   }
   public deleteCar(id: string){
     this.httpClient.delete(`http://localhost:8080/cars/${id}`).toPromise().then(data => {
-      console.log('wywolana delete');
     });
   }
 }

@@ -9,7 +9,6 @@ import {CarClientService, Content, RootObject} from '../../services/car-client.s
 export class CarShopComponent implements OnInit {
 
   rootObject: RootObject;
-  rootObject1: RootObject;
   carId: number;
   content: Content[];
   carById: Content;
@@ -30,21 +29,17 @@ export class CarShopComponent implements OnInit {
 
   showCarsById(value: number) {
     this.carId = value;
-    console.log(name);
     this.carById = this.rootObject.content[value - 1];
-    console.log(this.carById);
   }
   addCar(value: number, value2: string, value3: string, value4: string) {
     console.log(value, value2, value3, value4);
     this.carClientService.createPostData(value, value2, value3, value4);
     this.carClientService.addCar();
-    console.log('wywolana metoda addCar');
   }
   modCar(value: number, value2: string, value3: string, value4: string) {
     console.log(value, value2, value3, value4);
     this.carClientService.createPostData(value, value2, value3, value4);
     this.carClientService.modCar();
-    console.log('wywolana metoda addCar');
   }
 
   refresh()  {
